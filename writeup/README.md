@@ -59,7 +59,7 @@ Vì HxD thể hiện byte theo kiêu Little Endian, nên ta cần chỉnh lại 
 
 **Kết quả**: 0x10000
 
-## What is the tampered OEM ID? Format (0xXXXXXXXXXXXXXXXX)
+### What is the tampered OEM ID? Format (0xXXXXXXXXXXXXXXXX)
 
 Tìm hiểu thêm về vị trí OEM ID trong File System NTFS tại [đây]([url](https://en.wikipedia.org/wiki/NTFS#Structure)). Dựa vào thông tin ở câu 1, ta có thể đoán được File System của Partition này là NTFS. Ngoài ra khi tham chiếu tới địa chỉ LBA, Decoded text của 8 byte đầu tiên của Partition sau 3 byte đầu cũng thể hiện 3 chữ NTF. Chữ S bị thiếu thể hiện rằng OEM ID đã bị tampered (sửa đổi). Theo cấu trúc NTFS, 3 byte đầu tiên thể hiện x86 JMP and NOP instructions. 8 byte tiếp theo là OEM ID và đây cũng là kết quả cho câu thứ 2.
 
@@ -67,7 +67,7 @@ Tìm hiểu thêm về vị trí OEM ID trong File System NTFS tại [đây]([ur
 
 Kết quả: 0x4E54460020202020
 
-## After Fixing the disk, my friend downloaded a file from Google, what is the exact time when he clicked to download that file?
+### After Fixing the disk, my friend downloaded a file from Google, what is the exact time when he clicked to download that file?
 
 Câu này yêu cầu phải suy nghĩ nhiều 1 chút. Câu hỏi cho ta gợi ý về việc sửa lại disk để có thể làm trả lời được câu hỏi. Ta sẽ sửa byte có giá trị offset 00010006 từ 00 thành 53 để trả lại OEM ID chính xác là NTFS như trong phần Partition table đã gợi ý.
 - Đối với FTK Imager, ta cần sử dụng 1 công cụ Hex Editor sửa lại OEM ID của disk thì FTK Imager mới có thể nhận diện được File system và đưa ra phân tích.
@@ -109,7 +109,7 @@ Khi 1 file được tải về từ Google, 1 file tạm sẽ được tạo cho
 
 **Kết quả**: 2024-10-22 21:51:13
 
-## How much time did that file take to for download (in seconds)?? Format  (XXX)
+### How much time did that file take to for download (in seconds)?? Format  (XXX)
 ![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/16.png)
 
 Thời gian tải file là từ 10/22/2024 21:51.13 đến 10/22/2024 21:53.19, tương đương 126s.
@@ -117,7 +117,7 @@ Thời gian tải file là từ 10/22/2024 21:51.13 đến 10/22/2024 21:53.19, 
 
 **Kết quả**: 126
 
-## The first directory he moved this file to?
+### The first directory he moved this file to?
 
 Ta có thể sử dụng thêm tệp $MFT để hỗ trợ quá trình. Tệp $MFT chứa Master File Table, là nơi lưu trữ thông tin về các tệp.
 
@@ -141,7 +141,7 @@ Sau khi kiểm EntryNumber| SequenceNumber với giá trị là 56| 2, ta có th
 
 **Kết quả**: best
 
-## Last directory the suspicious move the file to?
+### Last directory the suspicious move the file to?
 
 Câu này giống có cách làm giống với câu 5. Ta có thể quan sát thấy tệp Blue_Team_Notes.pdf được đổi thư mục một vài lần nữa trước khi bị xóa và chuyển vào Recycle Bin. Nhiệm vụ của chúng ta là tìm được thư mục cuối cùng mà tệp được chuyển vào trước khi bị xóa. Theo như hình ta có thể thấy giá trị ParentEntryNumber| SequenceNumber cuối cùng được thể hiện là 47|1.
 
@@ -153,7 +153,7 @@ Sau đo mình tra cặp EntryNumber| SequenceNumber với giá trị 47| 1 và n
 
 **Kết quả**: MustRead
 
-## The time he of the deletion?? Eg: 2024-01-01 01:01:01
+### The time he of the deletion?? Eg: 2024-01-01 01:01:01
 
 Sau khi đi qua hết tất cả câu hỏi ở trên thì câu này khá đơn giản để trả lời. Chỉ cần lấy TimeStamp của hàng có UpdateReasons là FileDelete| Close là xong.
 
