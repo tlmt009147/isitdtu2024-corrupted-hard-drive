@@ -41,7 +41,7 @@ Và như trong hình, mình đã tìm được địa chỉ LBA.
 
 **Cách 2**: Giải quyết được vấn đề áp dụng kiến thức về cấu trúc của MBR, NTFS và tạo tiền đề giải quyết câu 2.
 
-Ở đây có thể sử dụng AutoSpy, FTK imager và HxD đều được. Nhưng mình chọn HxDc chỉnh Offset sang decimal để dễ tham chiếu hơn. Tham khảo Wikipedia, ta có thể phân tích một chút về MBR.
+Ở đây có thể sử dụng AutoSpy, FTK imager và HxD đều được. Nhưng mình chọn HxD chỉnh Offset sang decimal để dễ tham chiếu hơn. Tham khảo Wikipedia, ta có thể phân tích một chút về MBR.
 
 MBR (Master Boot Record) nằm ở sector đầu tiên của ổ đĩa và chiếm 512 byte. Trong MBR, Bootloader sẽ chiếm 446 bytes đầu tiên nên ta sẽ bỏ qua 446 bytes này đề tiến tới Partition table ở 64 byte kế tiếp (trong trường hợp đơn giản, thường sẽ có 4 Partition trong MBR). Dấu hiệu kết thúc của MBR nằm ở 2 byte cuối với giá trị 55 AA.
 
