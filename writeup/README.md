@@ -1,6 +1,6 @@
 # Corrupted hard drive
 ## Description
-File .vhd và file câu hỏi: [here]([url](https://drive.google.com/file/d/1o5400wEi8K26ic3kQpZXg40dgsy8-hWU/view?usp=sharing))
+File .vhd và file câu hỏi: [here](https://drive.google.com/file/d/1o5400wEi8K26ic3kQpZXg40dgsy8-hWU/view?usp=sharing)
 - What is the starting address of the LBA address? Format (0xXXXXX)
 - What is the tampered OEM ID? Format (0xXXXXXXXXXXXXXXXX)
 - After Fixing the disk, my friend downloaded a file from Google, what is the exact time when he clicked to download that file? Eg: 2024-01-01 01:01:01
@@ -11,8 +11,8 @@ File .vhd và file câu hỏi: [here]([url](https://drive.google.com/file/d/1o54
 ## Requirements
 ### Công cụ hỗ trợ
 - Công cụ phân tích ổ đĩa: FTK Imager/ Autospy
-- Công cụ parsing $MFT, $UsnJrnl:$J: [MFTECmd]([url](https://ericzimmerman.github.io/#!index.md))
-- Công cụ parsing $LogFile: [LogFileParser]([url](https://drive.google.com/file/d/1iO7LfmgFlCaP16D0xCBlK2PC0t8_mkcX/view?usp=sharing)) 
+- Công cụ parsing $MFT, $UsnJrnl:$J: [MFTECmd](https://ericzimmerman.github.io/#!index.md)
+- Công cụ parsing $LogFile: [LogFileParser](https://drive.google.com/file/d/1iO7LfmgFlCaP16D0xCBlK2PC0t8_mkcX/view?usp=sharing)
 - Công cụ hỗ trợ: HxD, Excel, Notepad
 ### Objective
 - Kiến thức về cấu trúc NTFS
@@ -61,7 +61,7 @@ Vì HxD thể hiện byte theo kiêu Little Endian, nên ta cần chỉnh lại 
 
 ### What is the tampered OEM ID? Format (0xXXXXXXXXXXXXXXXX)
 
-Tìm hiểu thêm về vị trí OEM ID trong File System NTFS tại [đây]([url](https://en.wikipedia.org/wiki/NTFS#Structure)). Dựa vào thông tin ở câu 1, ta có thể đoán được File System của Partition này là NTFS. Ngoài ra khi tham chiếu tới địa chỉ LBA, Decoded text của 8 byte đầu tiên của Partition sau 3 byte đầu cũng thể hiện 3 chữ NTF. Chữ S bị thiếu thể hiện rằng OEM ID đã bị tampered (sửa đổi). Theo cấu trúc NTFS, 3 byte đầu tiên thể hiện x86 JMP and NOP instructions. 8 byte tiếp theo là OEM ID và đây cũng là kết quả cho câu thứ 2.
+Tìm hiểu thêm về vị trí OEM ID trong File System NTFS tại [đây](https://en.wikipedia.org/wiki/NTFS#Structure). Dựa vào thông tin ở câu 1, ta có thể đoán được File System của Partition này là NTFS. Ngoài ra khi tham chiếu tới địa chỉ LBA, Decoded text của 8 byte đầu tiên của Partition sau 3 byte đầu cũng thể hiện 3 chữ NTF. Chữ S bị thiếu thể hiện rằng OEM ID đã bị tampered (sửa đổi). Theo cấu trúc NTFS, 3 byte đầu tiên thể hiện x86 JMP and NOP instructions. 8 byte tiếp theo là OEM ID và đây cũng là kết quả cho câu thứ 2.
 
 ![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/6.png)
 
