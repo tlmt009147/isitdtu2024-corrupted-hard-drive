@@ -88,7 +88,7 @@ Việc cần làm tiếp theo là sử dụng 1 công cụ để parse tệp $Lo
 ![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/11.png)
 
 Các bước tiếp theo mình sử dụng FTK imager còn AutoSpy có thể được thực hiện tương tự.
-Đầu tiên ta cần xuất file $LogFile và $UsnJrnl_$J từ trong ổ đĩa bằng cách nhấn chuột trái vào $LogFile và chọn Export Files và để ở nơi dễ thấy.
+Đầu tiên ta cần xuất file $LogFile và $UsnJrnl_$J từ trong ổ đĩa bằng cách nhấn chuột phải vào $LogFile và chọn Export Files và để ở nơi dễ thấy.
 
 ![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/12.png)
 
