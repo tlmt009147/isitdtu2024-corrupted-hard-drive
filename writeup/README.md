@@ -72,9 +72,11 @@ Kết quả: 0x4E54460020202020
 Câu này yêu cầu phải suy nghĩ nhiều 1 chút. Câu hỏi cho ta gợi ý về việc sửa lại disk để có thể làm trả lời được câu hỏi. Ta sẽ sửa byte có giá trị offset 00010006 từ 00 thành 53 để trả lại OEM ID chính xác là NTFS như trong phần Partition table đã gợi ý.
 - Đối với FTK Imager, ta cần sử dụng 1 công cụ Hex Editor sửa lại OEM ID của disk thì FTK Imager mới có thể nhận diện được File system và đưa ra phân tích.
     - Trước khi sửa:
+      
       ![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/7.png)
-    - Sau khi sửa
-![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/8.png)
+    - Sau khi sửa:
+
+      ![](https://github.com/tlmt009147/isitdtu2024-corrupted-hard-drive/blob/ae36c7a242189f1c30b51e19ab0270d4010e7843/writeup/image/8.png)
 
 Đối với AutoSpy, ta có thể không cần chỉnh sửa mà sử dụng disk có sẵn để phân tích vì AutoSpy vẫn cho ra được nội dung cân thiết.
 
