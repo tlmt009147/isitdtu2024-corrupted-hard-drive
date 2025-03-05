@@ -123,7 +123,7 @@ Thời gian tải file là từ 10/22/2024 21:51.13 đến 10/22/2024 21:53.19, 
 
 Ta có thể sử dụng thêm tệp $MFT để hỗ trợ quá trình. Tệp $MFT chứa Master File Table, là nơi lưu trữ thông tin về các tệp.
 
-Mỗi tệp hoặc thư mục trong File System NTFS đều có một entry riêng trong MFT, và EntryNumber là đặc trưng cho mỗi entry. EntryNumber có thẻ được sử dụng lại, tuy nhiên EntryNumber phải là duy nhất tại một thời điểm nhất định. Nếu EntryNumber thể hiện cho 1 tệp thì ParentEntryNumber sẽ thể hiện cho thư mục chứa tệp đó. SequenceNumber cho ta biết số lần mà EntryNumber đã được sử dụng lại. Sự kết hợp giữa EntryNumber và SequenceNumber thường sẽ đại diện cho 1 đối tượng duy nhất ngay cả khi đối tượng bị xóa. 
+Mỗi tệp hoặc thư mục trong File System NTFS đều có một entry riêng trong MFT, và EntryNumber là đặc trưng cho mỗi entry. EntryNumber có thể được sử dụng lại, tuy nhiên EntryNumber phải là duy nhất tại một thời điểm nhất định. Nếu EntryNumber thể hiện cho 1 tệp thì ParentEntryNumber sẽ thể hiện cho thư mục chứa tệp đó. SequenceNumber cho ta biết số lần mà EntryNumber đã được sử dụng lại. Sự kết hợp giữa EntryNumber và SequenceNumber thường sẽ đại diện cho 1 đối tượng duy nhất ngay cả khi đối tượng bị xóa. 
 
 Sau khi lướt thêm file $UsnJrnl:$J, mình bắt gặp 1 loạt entry liên quan tới file Blue_Team_Notes.pdf, ở đây mình thấy được sự thay đổi về vị trí thông qua UpdateReasons và ParentEntryNumber. 
 
